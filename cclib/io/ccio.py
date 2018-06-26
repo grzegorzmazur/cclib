@@ -42,6 +42,7 @@ from cclib.parser.molcasparser import Molcas
 from cclib.parser.molproparser import Molpro
 from cclib.parser.mopacparser import MOPAC
 from cclib.parser.nwchemparser import NWChem
+from cclib.parser.niedoidaparser import Niedoida
 from cclib.parser.orcaparser import ORCA
 from cclib.parser.psiparser import Psi
 from cclib.parser.qchemparser import QChem
@@ -98,6 +99,7 @@ triggers = [
     (Molpro,    ["PROGRAM SYSTEM MOLPRO"],                          True),
     (Molpro,    ["1PROGRAM"],                                       False),
     (MOPAC,     ["MOPAC20"],                                        True),
+    (Niedoida,  ["niedoida"],                                       True),
     (NWChem,    ["Northwest Computational Chemistry Package"],      True),
     (ORCA,      ["O   R   C   A"],                                  True),
     (Psi,       ["PSI", "Ab Initio Electronic Structure"],          True),

@@ -23,6 +23,7 @@ from cclib.parser.jaguarparser import Jaguar
 from cclib.parser.molcasparser import Molcas
 from cclib.parser.molproparser import Molpro
 from cclib.parser.mopacparser import MOPAC
+from cclib.parser.niedoidaparser import Niedoida
 from cclib.parser.nwchemparser import NWChem
 from cclib.parser.orcaparser import ORCA
 from cclib.parser.psiparser import Psi
