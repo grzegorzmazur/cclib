@@ -34,6 +34,8 @@ Basis     NWChem      GenericBasisTest      basicNWChem6.0        dvb_sp_hf.out
 Basis     NWChem      GenericBasisTest      basicNWChem6.0        dvb_sp_ks.out
 Basis     NWChem      GenericBasisTest      basicNWChem6.5        dvb_sp_hf.out
 Basis     NWChem      GenericBasisTest      basicNWChem6.5        dvb_sp_ks.out
+Basis     Niedoida    GenericBasisTest      basicNiedoida         dvb_sp_rhf.log
+Basis     Niedoida    GenericBasisTest      basicNiedoida         dvb_sp_rks.log
 Basis     ORCA        GenericBasisTest      basicORCA2.9          dvb_sp.out
 Basis     ORCA        GenericBasisTest      basicORCA3.0          dvb_sp.out
 Basis     Psi         GenericBasisTest      basicPsi4.0           dvb_sp_rhf.out
@@ -54,6 +56,7 @@ Basis     Molpro      MolproBigBasisTest    basicMolpro2006       C_bigbasis.out
 Basis     Molpro      MolproBigBasisTest    basicMolpro2012       C_bigbasis.out
 Basis     NWChem      GenericBigBasisTest   basicNWChem6.0        C_bigbasis.out
 Basis     NWChem      GenericBigBasisTest   basicNWChem6.5        C_bigbasis.out
+Basis     Niedoida    GenericBigBasisTest   basicNiedoida         C_bigbasis.log
 Basis     Psi         PsiBigBasisTest       basicPsi4.0           C_bigbasis.out
 Basis     QChem       QChemBigBasisTest     basicQChem4.2         C_bigbasis.out
 
@@ -174,6 +177,7 @@ MP        Molpro      GenericMP4SDTQTest    basicMolpro2006       h2o_mp4.out
 MP        Molpro      GenericMP4SDTQTest    basicMolpro2012       h2o_mp4.out
 MP        NWChem      GenericMP2Test        basicNWChem6.0        water_mp2.out
 MP        NWChem      GenericMP2Test        basicNWChem6.5        water_mp2.out
+MP        Niedoida    GenericMP2Test        basicNiedoida         water_mp2.log
 MP        Psi         GenericMP2Test        basicPsi4.0           water_mp2.out
 MP        QChem       GenericMP2Test        basicQChem4.2         water_mp2.out
 MP        QChem       GenericMP3Test        basicQChem4.2         water_mp3.out
@@ -220,6 +224,8 @@ SP        Jaguar      GenericSPTest         basicJaguar8.3        dvb_sp_ks.out
 SP        Molcas      GenericSPTest         basicOpenMolcas18.0   dvb_sp.out
 SP        Molpro      GenericSPTest         basicMolpro2006       dvb_sphf.out
 SP        Molpro      GenericSPTest         basicMolpro2012       dvb_sphf.out
+SP        Niedoida    GenericSPTest         basicNiedoida         dvb_sp_rhf.log
+SP        Niedoida    GenericSPTest         basicNiedoida         dvb_sp_rks.log
 SP        NWChem      GenericSPTest         basicNWChem6.0        dvb_sp_hf.out
 SP        NWChem      GenericSPTest         basicNWChem6.0        dvb_sp_ks.out
 SP        NWChem      GenericSPTest         basicNWChem6.5        dvb_sp_hf.out
@@ -254,6 +260,9 @@ SPun      Molpro      GenericSPunTest       basicMolpro2006       dvb_sphf_un.ou
 SPun      Molpro      GenericSPunTest       basicMolpro2012       dvb_sphf_un.out
 SPun      NWChem      GenericSPunTest       basicNWChem6.0        dvb_un_sp_ks.out
 SPun      NWChem      GenericSPunTest       basicNWChem6.5        dvb_un_sp_ks.out
+SPun      Niedoida    GenericSPunTest       basicNiedoida         dvb_sp_uhf.log
+SPun      Niedoida    GenericSPunTest       basicNiedoida         dvb_sp_uks.log
+SPun      Niedoida    GenericROSPTest       basicNiedoida         dvb_sp_rohf.log
 SPun      ORCA        GenericSPunTest       basicORCA2.9          dvb_sp_un.out
 SPun      ORCA        GenericSPunTest       basicORCA3.0          dvb_sp_un.out
 SPun      Psi         GenericROSPTest       basicPsi4.0           dvb_sp_rohf.out

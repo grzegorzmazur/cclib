@@ -1,0 +1,1583 @@
+begin niedoida
+begin input
+end input
+timing: 0.00135s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 0.575333 MB 
+
+begin job info
+job name: dvb_sp_ks
+job title: untitled
+basis set: sto-3g
+charge: 0
+multiplicity: 1
+theory: B3LYP
+run type: single point
+length unit: bohr
+energy unit: hartree
+end job info
+timing: 0.00006s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 0.576706 MB 
+
+begin parallelization info
+number of processes: 1
+total number of threads: 4
+end parallelization info
+timing: 0.00002s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 0.576706 MB 
+
+begin symmetry
+finite_group: C2h
+rank: 4
+largest_abelian_subgroup: C2h
+rank: 4
+end symmetry
+timing: 0.18160s wall, 0.25000s user + 0.33000s system = 0.58000s CPU (319.4%)
+memory: 0.939499 MB 
+
+begin basis set
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: C
+no_shells: 2
+type: s
+exps: 3, 5
+             1             2             3
+   71.61683700   13.04509600    3.53051220
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+type: sp
+exps: 3, 5
+             1             2             3
+    2.94124940    0.68348310    0.22228990
+coeffs: 2x3, 4
+                 1             2             3
+   1   -0.09996723    0.39951283    0.70011547
+   2    0.15591627    0.60768372    0.39195739
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+element: H
+no_shells: 1
+type: s
+exps: 3, 5
+             1             2             3
+    3.42525091    0.62391373    0.16885540
+coeffs: 1x3, 4
+                 1             2             3
+   1    0.15432897    0.53532814    0.44463454
+
+end basis set
+timing: 0.00170s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 0.954117 MB 
+
+coordinates: 20x3, 4
+                       x             y             z
+         C   -1.41308741    0.24316249    0.00000000
+         C    1.41308741   -0.24316249    0.00000000
+         C   -0.48308439    1.31893657    0.00000000
+         C    0.48308439   -1.31893657    0.00000000
+         C    0.89935459    1.08276512    0.00000000
+         C   -0.89935459   -1.08276512    0.00000000
+         H   -0.85806792    2.35168462    0.00000000
+         H    0.85806792   -2.35168462    0.00000000
+         H    1.59563597    1.93048601    0.00000000
+         H   -1.59563597   -1.93048601    0.00000000
+         C    2.87969547   -0.54746309    0.00000000
+         C   -2.87969547    0.54746309    0.00000000
+         H    3.12563689   -1.62062971    0.00000000
+         H   -3.12563689    1.62062971    0.00000000
+         C    3.88337819    0.34673302    0.00000000
+         C   -3.88337819   -0.34673302    0.00000000
+         H    3.70790402    1.42856941    0.00000000
+         H   -3.70790402   -1.42856941    0.00000000
+         H    4.93208953    0.02597472    0.00000000
+         H   -4.93208953   -0.02597472    0.00000000
+
+external_charges_coords_and_charge_value: 0x4, 1
+rotation_to_std_frame: 3x3, 4
+                 1             2             3
+   1    0.99995813    0.00915055    0.00000000
+   2   -0.00915055    0.99995813    0.00000000
+   3    0.00000000    0.00000000    1.00000000
+
+translation_to_std_frame: 3, 5
+             1             2             3
+    0.00000000    0.00000000    0.00000000
+begin 1-electron integrals
+end 1-electron integrals
+timing: 0.08040s wall, 0.12000s user + 0.14000s system = 0.26000s CPU (323.4%)
+memory: 1.06583 MB 
+
+begin promolecule
+radial grid generator: gc-logm
+max_no_radial_points: 75
+spherical grid generator: Lebedev-Laikov
+max_no_angular_points: 1500
+grid type: angular-S-adaptive
+requested_accuracy:     6.00000000
+begin forming JK
+incremental: 0
+polarized: 1
+end forming JK
+timing: 0.00038s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 65.3118 MB 
+
+begin grid integration
+begin molecular grid construction
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.00009s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 65.4548 MB 
+
+begin trimming
+end trimming
+timing: 0.00019s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 65.4549 MB 
+
+begin rebatching
+end rebatching
+timing: 0.00111s wall, 0.00000s user + 0.01000s system = 0.01000s CPU (901.2%)
+memory: 65.4172 MB 
+
+end atomic grid construction
+timing: 0.00608s wall, 0.01000s user + 0.02000s system = 0.03000s CPU (493.8%)
+memory: 65.4159 MB 
+
+no_points: 838
+no_blocks: 6
+average_shells_per_point:     1.74940334
+average_shells_per_block:     1.83333333
+end molecular grid construction
+timing: 0.00612s wall, 0.01000s user + 0.02000s system = 0.03000s CPU (490.1%)
+memory: 65.4157 MB 
+
+ao_cache_hit_ratio:     0.00000000
+absolute_grid_accuracy:    13.08771196
+relative_grid_accuracy:    13.86586321
+xc_energy:    -4.33369893
+end grid integration
+timing: 0.01621s wall, 0.03000s user + 0.03000s system = 0.06000s CPU (370.1%)
+memory: 65.8844 MB 
+
+begin forming JK
+incremental: 0
+polarized: 1
+end forming JK
+timing: 0.00021s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 65.8859 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.50000000
+absolute_grid_accuracy:    13.08301683
+relative_grid_accuracy:    13.86116809
+xc_energy:    -4.33369893
+end grid integration
+timing: 0.00896s wall, 0.02000s user + 0.01000s system = 0.03000s CPU (335.0%)
+memory: 65.8888 MB 
+
+radial grid generator: gc-logm
+max_no_radial_points: 75
+spherical grid generator: Lebedev-Laikov
+max_no_angular_points: 1500
+grid type: angular-S-adaptive
+requested_accuracy:     6.00000000
+begin forming JK
+incremental: 0
+polarized: 1
+end forming JK
+timing: 0.00009s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 62.4375 MB 
+
+begin grid integration
+begin molecular grid construction
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.00006s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 62.5346 MB 
+
+begin trimming
+end trimming
+timing: 0.00016s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 62.5361 MB 
+
+begin rebatching
+end rebatching
+timing: 0.00083s wall, 0.00000s user + 0.01000s system = 0.01000s CPU (n/a%)
+memory: 62.5106 MB 
+
+end atomic grid construction
+timing: 0.00190s wall, 0.00000s user + 0.01000s system = 0.01000s CPU (526.2%)
+memory: 62.5095 MB 
+
+no_points: 742
+no_blocks: 6
+average_shells_per_point:     1.00000000
+average_shells_per_block:     1.00000000
+end molecular grid construction
+timing: 0.00194s wall, 0.00000s user + 0.01000s system = 0.01000s CPU (515.7%)
+memory: 62.5094 MB 
+
+ao_cache_hit_ratio:     0.00000000
+absolute_grid_accuracy:    14.95458977
+relative_grid_accuracy:    14.95458977
+xc_energy:    -0.31079312
+end grid integration
+timing: 0.00687s wall, 0.00000s user + 0.02000s system = 0.02000s CPU (291.0%)
+memory: 62.7458 MB 
+
+begin forming JK
+incremental: 0
+polarized: 1
+end forming JK
+timing: 0.00005s wall, 0.01000s user + 0.00000s system = 0.01000s CPU (n/a%)
+memory: 62.7465 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.50000000
+absolute_grid_accuracy:    15.00034726
+relative_grid_accuracy:    15.00034726
+xc_energy:    -0.31079312
+end grid integration
+timing: 0.00442s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 62.7466 MB 
+
+end promolecule
+timing: 0.04101s wall, 0.07000s user + 0.06000s system = 0.13000s CPU (317.0%)
+memory: 1.40262 MB 
+
+Initial guess: will be constructed from promolecular fragments
+radial grid generator: gc-logm
+max_no_radial_points: 75
+spherical grid generator: Lebedev-Laikov
+max_no_angular_points: 1500
+grid type: angular-rho0-adaptive
+requested_accuracy:     6.00000000
+begin scf
+begin forming JK
+incremental: 0
+polarized: 0
+end forming JK
+timing: 0.45399s wall, 0.51000s user + 0.10000s system = 0.61000s CPU (134.4%)
+memory: 66.7215 MB 
+
+begin grid integration
+begin molecular grid construction
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.10959s wall, 0.15000s user + 0.17000s system = 0.32000s CPU (292.0%)
+memory: 83.8837 MB 
+
+begin trimming
+end trimming
+timing: 0.00990s wall, 0.01000s user + 0.00000s system = 0.01000s CPU (101.0%)
+memory: 84.159 MB 
+
+begin rebatching
+end rebatching
+timing: 0.48286s wall, 0.50000s user + 0.00000s system = 0.50000s CPU (103.5%)
+memory: 83.8032 MB 
+
+end atomic grid construction
+timing: 1.89541s wall, 2.21000s user + 2.71000s system = 4.92000s CPU (259.6%)
+memory: 83.802 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.10993s wall, 0.18000s user + 0.16000s system = 0.34000s CPU (309.3%)
+memory: 97.182 MB 
+
+begin trimming
+end trimming
+timing: 0.01012s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 97.3049 MB 
+
+begin rebatching
+end rebatching
+timing: 0.48735s wall, 0.50000s user + 0.00000s system = 0.50000s CPU (102.6%)
+memory: 97.1393 MB 
+
+end atomic grid construction
+timing: 2.10492s wall, 2.33000s user + 3.25000s system = 5.58000s CPU (265.1%)
+memory: 97.1381 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.10359s wall, 0.13000s user + 0.17000s system = 0.30000s CPU (289.6%)
+memory: 109.996 MB 
+
+begin trimming
+end trimming
+timing: 0.00947s wall, 0.01000s user + 0.01000s system = 0.02000s CPU (211.2%)
+memory: 110.557 MB 
+
+begin rebatching
+end rebatching
+timing: 0.46634s wall, 0.47000s user + 0.00000s system = 0.47000s CPU (100.8%)
+memory: 109.919 MB 
+
+end atomic grid construction
+timing: 2.03617s wall, 2.20000s user + 3.18000s system = 5.38000s CPU (264.2%)
+memory: 109.918 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.10348s wall, 0.15000s user + 0.15000s system = 0.30000s CPU (289.9%)
+memory: 122.77 MB 
+
+begin trimming
+end trimming
+timing: 0.00961s wall, 0.00000s user + 0.01000s system = 0.01000s CPU (104.1%)
+memory: 123.151 MB 
+
+begin rebatching
+end rebatching
+timing: 0.46758s wall, 0.48000s user + 0.00000s system = 0.48000s CPU (102.7%)
+memory: 122.685 MB 
+
+end atomic grid construction
+timing: 2.10956s wall, 2.27000s user + 3.39000s system = 5.66000s CPU (268.3%)
+memory: 122.683 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.10570s wall, 0.16000s user + 0.15000s system = 0.31000s CPU (293.3%)
+memory: 136.091 MB 
+
+begin trimming
+end trimming
+timing: 0.01003s wall, 0.01000s user + 0.00000s system = 0.01000s CPU (99.7%)
+memory: 136.545 MB 
+
+begin rebatching
+end rebatching
+timing: 0.48346s wall, 0.49000s user + 0.00000s system = 0.49000s CPU (101.4%)
+memory: 136.024 MB 
+
+end atomic grid construction
+timing: 2.04578s wall, 2.33000s user + 3.03000s system = 5.36000s CPU (262.0%)
+memory: 136.022 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.10565s wall, 0.15000s user + 0.17000s system = 0.32000s CPU (302.9%)
+memory: 149.433 MB 
+
+begin trimming
+end trimming
+timing: 0.00993s wall, 0.01000s user + 0.01000s system = 0.02000s CPU (201.3%)
+memory: 150.107 MB 
+
+begin rebatching
+end rebatching
+timing: 0.48735s wall, 0.49000s user + 0.00000s system = 0.49000s CPU (100.5%)
+memory: 149.38 MB 
+
+end atomic grid construction
+timing: 2.07197s wall, 2.31000s user + 3.19000s system = 5.50000s CPU (265.4%)
+memory: 149.382 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.09650s wall, 0.16000s user + 0.15000s system = 0.31000s CPU (321.2%)
+memory: 160.274 MB 
+
+begin trimming
+end trimming
+timing: 0.00809s wall, 0.01000s user + 0.02000s system = 0.03000s CPU (370.9%)
+memory: 160.559 MB 
+
+begin rebatching
+end rebatching
+timing: 0.37315s wall, 0.40000s user + 0.00000s system = 0.40000s CPU (107.2%)
+memory: 160.099 MB 
+
+end atomic grid construction
+timing: 1.69018s wall, 1.92000s user + 2.58000s system = 4.50000s CPU (266.2%)
+memory: 160.098 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.09528s wall, 0.16000s user + 0.16000s system = 0.32000s CPU (335.9%)
+memory: 171.11 MB 
+
+begin trimming
+end trimming
+timing: 0.00825s wall, 0.01000s user + 0.02000s system = 0.03000s CPU (363.5%)
+memory: 171.395 MB 
+
+begin rebatching
+end rebatching
+timing: 0.38638s wall, 0.40000s user + 0.01000s system = 0.41000s CPU (106.1%)
+memory: 170.943 MB 
+
+end atomic grid construction
+timing: 1.53221s wall, 1.87000s user + 2.06000s system = 3.93000s CPU (256.5%)
+memory: 170.941 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.09974s wall, 0.14000s user + 0.18000s system = 0.32000s CPU (320.8%)
+memory: 182.066 MB 
+
+begin trimming
+end trimming
+timing: 0.00836s wall, 0.02000s user + 0.01000s system = 0.03000s CPU (358.9%)
+memory: 182.373 MB 
+
+begin rebatching
+end rebatching
+timing: 0.39340s wall, 0.41000s user + 0.00000s system = 0.41000s CPU (104.2%)
+memory: 181.931 MB 
+
+end atomic grid construction
+timing: 1.54093s wall, 1.78000s user + 2.21000s system = 3.99000s CPU (258.9%)
+memory: 181.929 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.10154s wall, 0.15000s user + 0.17000s system = 0.32000s CPU (315.1%)
+memory: 192.985 MB 
+
+begin trimming
+end trimming
+timing: 0.00828s wall, 0.01000s user + 0.01000s system = 0.02000s CPU (241.4%)
+memory: 193.35 MB 
+
+begin rebatching
+end rebatching
+timing: 0.39003s wall, 0.40000s user + 0.00000s system = 0.40000s CPU (102.6%)
+memory: 192.746 MB 
+
+end atomic grid construction
+timing: 1.60661s wall, 1.81000s user + 2.40000s system = 4.21000s CPU (262.0%)
+memory: 192.744 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.09342s wall, 0.15000s user + 0.15000s system = 0.30000s CPU (321.1%)
+memory: 205.123 MB 
+
+begin trimming
+end trimming
+timing: 0.00925s wall, 0.01000s user + 0.00000s system = 0.01000s CPU (108.1%)
+memory: 205.614 MB 
+
+begin rebatching
+end rebatching
+timing: 0.46794s wall, 0.48000s user + 0.00000s system = 0.48000s CPU (102.6%)
+memory: 205.05 MB 
+
+end atomic grid construction
+timing: 1.85630s wall, 2.04000s user + 2.81000s system = 4.85000s CPU (261.3%)
+memory: 205.055 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.09170s wall, 0.16000s user + 0.14000s system = 0.30000s CPU (327.2%)
+memory: 217.327 MB 
+
+begin trimming
+end trimming
+timing: 0.00939s wall, 0.00000s user + 0.01000s system = 0.01000s CPU (106.4%)
+memory: 217.372 MB 
+
+begin rebatching
+end rebatching
+timing: 0.46320s wall, 0.48000s user + 0.00000s system = 0.48000s CPU (103.6%)
+memory: 217.138 MB 
+
+end atomic grid construction
+timing: 1.86169s wall, 2.16000s user + 2.73000s system = 4.89000s CPU (262.7%)
+memory: 217.136 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.13156s wall, 0.13000s user + 0.14000s system = 0.27000s CPU (205.2%)
+memory: 228.133 MB 
+
+begin trimming
+end trimming
+timing: 0.00823s wall, 0.01000s user + 0.00000s system = 0.01000s CPU (121.5%)
+memory: 228.49 MB 
+
+begin rebatching
+end rebatching
+timing: 0.40650s wall, 0.42000s user + 0.00000s system = 0.42000s CPU (103.3%)
+memory: 227.924 MB 
+
+end atomic grid construction
+timing: 1.75926s wall, 1.88000s user + 2.58000s system = 4.46000s CPU (253.5%)
+memory: 227.922 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.08952s wall, 0.14000s user + 0.14000s system = 0.28000s CPU (312.8%)
+memory: 238.919 MB 
+
+begin trimming
+end trimming
+timing: 0.00837s wall, 0.01000s user + 0.02000s system = 0.03000s CPU (358.6%)
+memory: 239.277 MB 
+
+begin rebatching
+end rebatching
+timing: 0.40716s wall, 0.42000s user + 0.00000s system = 0.42000s CPU (103.2%)
+memory: 238.755 MB 
+
+end atomic grid construction
+timing: 1.73442s wall, 1.94000s user + 2.63000s system = 4.57000s CPU (263.5%)
+memory: 238.754 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.07752s wall, 0.12000s user + 0.12000s system = 0.24000s CPU (309.6%)
+memory: 250.952 MB 
+
+begin trimming
+end trimming
+timing: 0.00919s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 251.247 MB 
+
+begin rebatching
+end rebatching
+timing: 0.46737s wall, 0.49000s user + 0.00000s system = 0.49000s CPU (104.8%)
+memory: 250.884 MB 
+
+end atomic grid construction
+timing: 1.76288s wall, 2.07000s user + 2.42000s system = 4.49000s CPU (254.7%)
+memory: 250.882 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.07689s wall, 0.11000s user + 0.13000s system = 0.24000s CPU (312.1%)
+memory: 263.066 MB 
+
+begin trimming
+end trimming
+timing: 0.00919s wall, 0.01000s user + 0.00000s system = 0.01000s CPU (108.8%)
+memory: 263.471 MB 
+
+begin rebatching
+end rebatching
+timing: 0.46532s wall, 0.48000s user + 0.00000s system = 0.48000s CPU (103.2%)
+memory: 262.831 MB 
+
+end atomic grid construction
+timing: 1.87326s wall, 2.09000s user + 2.81000s system = 4.90000s CPU (261.6%)
+memory: 262.829 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.08451s wall, 0.14000s user + 0.13000s system = 0.27000s CPU (319.5%)
+memory: 273.733 MB 
+
+begin trimming
+end trimming
+timing: 0.00838s wall, 0.01000s user + 0.01000s system = 0.02000s CPU (238.8%)
+memory: 273.994 MB 
+
+begin rebatching
+end rebatching
+timing: 0.40593s wall, 0.41000s user + 0.02000s system = 0.43000s CPU (105.9%)
+memory: 273.581 MB 
+
+end atomic grid construction
+timing: 1.70044s wall, 1.86000s user + 2.61000s system = 4.47000s CPU (262.9%)
+memory: 273.579 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.08456s wall, 0.14000s user + 0.13000s system = 0.27000s CPU (319.3%)
+memory: 284.486 MB 
+
+begin trimming
+end trimming
+timing: 0.00836s wall, 0.01000s user + 0.02000s system = 0.03000s CPU (358.7%)
+memory: 284.747 MB 
+
+begin rebatching
+end rebatching
+timing: 0.40505s wall, 0.42000s user + 0.01000s system = 0.43000s CPU (106.2%)
+memory: 284.283 MB 
+
+end atomic grid construction
+timing: 1.79090s wall, 1.94000s user + 2.82000s system = 4.76000s CPU (265.8%)
+memory: 284.281 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.06914s wall, 0.12000s user + 0.10000s system = 0.22000s CPU (318.2%)
+memory: 294.326 MB 
+
+begin trimming
+end trimming
+timing: 0.00788s wall, 0.01000s user + 0.02000s system = 0.03000s CPU (380.6%)
+memory: 294.604 MB 
+
+begin rebatching
+end rebatching
+timing: 0.37999s wall, 0.40000s user + 0.05000s system = 0.45000s CPU (118.4%)
+memory: 294.14 MB 
+
+end atomic grid construction
+timing: 1.64258s wall, 1.79000s user + 2.58000s system = 4.37000s CPU (266.0%)
+memory: 294.138 MB 
+
+begin atomic grid construction
+begin partitioning
+end partitioning
+timing: 0.13256s wall, 0.13000s user + 0.24000s system = 0.37000s CPU (279.1%)
+memory: 304.147 MB 
+
+begin trimming
+end trimming
+timing: 0.00792s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 304.406 MB 
+
+begin rebatching
+end rebatching
+timing: 0.37764s wall, 0.38000s user + 0.00000s system = 0.38000s CPU (100.6%)
+memory: 304.019 MB 
+
+end atomic grid construction
+timing: 1.59671s wall, 1.70000s user + 2.34000s system = 4.04000s CPU (253.0%)
+memory: 304.018 MB 
+
+no_points: 860108
+no_blocks: 912
+average_shells_per_point:    24.53763597
+average_shells_per_block:    26.59429825
+end molecular grid construction
+timing: 36.22377s wall, 40.50000s user + 54.33000s system = 94.83000s CPU (261.8%)
+memory: 304.017 MB 
+
+ao_cache_hit_ratio:     0.00000000
+absolute_grid_accuracy:     4.59660858
+relative_grid_accuracy:     6.44170662
+xc_energy:   -52.72283306
+end grid integration
+timing: 67.50936s wall, 83.94000s user + 108.88000s system = 192.82000s CPU (285.6%)
+memory: 359.018 MB 
+
+target_dE: 1.000000e-06
+target_dPRMS: 1.000000e-08
+target_dPMax: 1.000000e-06
+i: 0
+begin forming JK
+incremental: 0
+polarized: 0
+end forming JK
+timing: 1.12373s wall, 1.21000s user + 0.18000s system = 1.39000s CPU (123.7%)
+memory: 359.101 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.04702194
+absolute_grid_accuracy:     4.40680511
+relative_grid_accuracy:     6.25190315
+xc_energy:   -54.06720163
+end grid integration
+timing: 31.12296s wall, 42.36000s user + 55.17000s system = 97.53000s CPU (313.4%)
+memory: 359.091 MB 
+
+E: -1200.42750152
+dE: -1200.42750152
+dPRMS:     0.00200679
+dPMax:     0.87458332
+i: 1
+begin forming JK
+incremental: 0
+polarized: 0
+end forming JK
+timing: 1.12449s wall, 1.24000s user + 0.15000s system = 1.39000s CPU (123.6%)
+memory: 359.23 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.08982036
+absolute_grid_accuracy:     4.40434203
+relative_grid_accuracy:     6.24944007
+xc_energy:   -53.84229105
+end grid integration
+timing: 30.88232s wall, 42.64000s user + 54.17000s system = 96.81000s CPU (313.5%)
+memory: 359.223 MB 
+
+E: -1200.48509905
+dE:    -0.05759754
+dPRMS:     0.00046164
+dPMax:     0.24865837
+i: 2
+begin forming JK
+incremental: 0
+polarized: 0
+end forming JK
+timing: 1.12512s wall, 1.25000s user + 0.14000s system = 1.39000s CPU (123.5%)
+memory: 359.334 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.12893983
+absolute_grid_accuracy:     4.40459355
+relative_grid_accuracy:     6.24969159
+xc_energy:   -53.89812116
+end grid integration
+timing: 31.04974s wall, 42.31000s user + 54.89000s system = 97.20000s CPU (313.0%)
+memory: 359.351 MB 
+
+E: -1200.50316134
+dE:    -0.01806229
+dPRMS:     0.00013015
+dPMax:     0.04811331
+i: 3
+begin forming JK
+incremental: 1
+polarized: 0
+end forming JK
+timing: 1.11923s wall, 1.19000s user + 0.20000s system = 1.39000s CPU (124.2%)
+memory: 359.462 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.16483516
+absolute_grid_accuracy:     4.40466440
+relative_grid_accuracy:     6.24976244
+xc_energy:   -53.89963609
+end grid integration
+timing: 30.94388s wall, 42.32000s user + 54.58000s system = 96.90000s CPU (313.1%)
+memory: 359.452 MB 
+
+E: -1200.50326770
+dE:    -0.00010635
+dPRMS:     0.00000886
+dPMax:     0.00219699
+i: 4
+begin forming JK
+incremental: 1
+polarized: 0
+end forming JK
+timing: 1.11292s wall, 1.21000s user + 0.16000s system = 1.37000s CPU (123.1%)
+memory: 359.562 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.19788918
+absolute_grid_accuracy:     4.40465939
+relative_grid_accuracy:     6.24975743
+xc_energy:   -53.89940640
+end grid integration
+timing: 30.81782s wall, 42.17000s user + 54.29000s system = 96.46000s CPU (313.0%)
+memory: 359.561 MB 
+
+E: -1200.50326824
+dE:    -0.00000054
+dPRMS:     0.00000116
+dPMax:     0.00073891
+i: 5
+begin forming JK
+incremental: 1
+polarized: 0
+end forming JK
+timing: 1.09722s wall, 1.21000s user + 0.15000s system = 1.36000s CPU (123.9%)
+memory: 359.673 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.22842640
+absolute_grid_accuracy:     4.40465963
+relative_grid_accuracy:     6.24975767
+xc_energy:   -53.89938866
+end grid integration
+timing: 31.08571s wall, 42.48000s user + 54.86000s system = 97.34000s CPU (313.1%)
+memory: 359.679 MB 
+
+E: -1200.50326817
+dE:     0.00000007
+dPRMS:     0.00000010
+dPMax:     0.00005501
+i: 6
+begin forming JK
+incremental: 1
+polarized: 0
+end forming JK
+timing: 1.07491s wall, 1.17000s user + 0.17000s system = 1.34000s CPU (124.7%)
+memory: 359.789 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.25672372
+absolute_grid_accuracy:     4.40465955
+relative_grid_accuracy:     6.24975759
+xc_energy:   -53.89938706
+end grid integration
+timing: 30.59974s wall, 42.01000s user + 53.61000s system = 95.62000s CPU (312.5%)
+memory: 359.785 MB 
+
+E: -1200.50326817
+dE:     0.00000000
+dPRMS:     0.00000001
+dPMax:     0.00000545
+i: 7
+begin forming JK
+incremental: 1
+polarized: 0
+end forming JK
+timing: 1.03443s wall, 1.10000s user + 0.19000s system = 1.29000s CPU (124.7%)
+memory: 359.895 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.28301887
+absolute_grid_accuracy:     4.40465956
+relative_grid_accuracy:     6.24975760
+xc_energy:   -53.89938713
+end grid integration
+timing: 30.61685s wall, 42.18000s user + 53.69000s system = 95.87000s CPU (313.1%)
+memory: 359.897 MB 
+
+begin forming JK
+incremental: 0
+polarized: 0
+end forming JK
+timing: 1.12436s wall, 1.21000s user + 0.18000s system = 1.39000s CPU (123.6%)
+memory: 359.897 MB 
+
+begin grid integration
+ao_cache_hit_ratio:     0.30751708
+absolute_grid_accuracy:     4.40465956
+relative_grid_accuracy:     6.24975760
+xc_energy:   -53.89938709
+end grid integration
+timing: 31.48679s wall, 43.02000s user + 55.57000s system = 98.59000s CPU (313.1%)
+memory: 359.895 MB 
+
+E: -1200.50326817
+dE:    -0.00000000
+dPRMS:     0.00000000
+dPMax:     0.00000086
+scf converged: 1
+begin results
+total_energy:  -357.80450701
+begin Mulliken analysis
+Mulliken orbital populations: 60, 5
+             1             2             3             4             5
+    1.99779243    0.15125757    1.53561281    1.60964269    1.10111346
+             6             7             8             9            10
+    1.99779243    0.15125723    1.53561279    1.60964264    1.10111345
+            11            12            13            14            15
+    1.99828405    0.23036237    1.43731027    1.53269993    0.94970983
+            16            17            18            19            20
+    1.99828404    0.23036250    1.43731034    1.53269995    0.94970983
+            21            22            23            24            25
+    1.99826791    0.22219991    1.50543811    1.46216063    0.96048054
+            26            27            28            29            30
+    1.99826791    0.22219982    1.50543811    1.46216061    0.96048054
+            31            32            33            34            35
+    0.69659547    0.69659545    0.71529890    0.71529890    1.99890401
+            36            37            38            39            40
+    0.27516199    1.43224136    1.60427136    1.02214230    1.99890401
+            41            42            43            44            45
+    0.27516188    1.43224125    1.60427129    1.02214229    0.68499208
+            46            47            48            49            50
+    0.68499218    1.99862845    0.46144565    1.47890916    1.46848024
+            51            52            53            54            55
+    0.96655387    1.99862845    0.46144563    1.47890916    1.46848024
+            56            57            58            59            60
+    0.96655388    0.78684821    0.78684821    0.71719473    0.71719472
+Mulliken atomic populations: 20, 5
+             1             2             3             4             5
+    6.39541896    6.39541853    6.14836646    6.14836665    6.14854710
+             6             7             8             9            10
+    6.14854699    0.69659547    0.69659545    0.71529890    0.71529890
+            11            12            13            14            15
+    6.33272102    6.33272072    0.68499208    0.68499218    6.37401737
+            16            17            18            19            20
+    6.37401735    0.78684821    0.78684821    0.71719473    0.71719472
+Mulliken atomic charges: 20, 5
+             1             2             3             4             5
+   -0.39541896   -0.39541853   -0.14836646   -0.14836665   -0.14854710
+             6             7             8             9            10
+   -0.14854699    0.30340453    0.30340455    0.28470110    0.28470110
+            11            12            13            14            15
+   -0.33272102   -0.33272072    0.31500792    0.31500782   -0.37401737
+            16            17            18            19            20
+   -0.37401735    0.21315179    0.21315179    0.28280527    0.28280528
+Mulliken overlap populations: 20x20, 4
+                 1             2             3             4
+   1    8.68718796   -0.49573038   -0.28807804   -0.09068701
+   2   -0.49573038    8.68718765   -0.09068691   -0.28807790
+   3   -0.28807804   -0.09068691    7.49173340   -0.46015483
+   4   -0.09068701   -0.28807790   -0.46015483    7.49173332
+   5   -0.11483695   -0.26257547   -0.39628025   -0.11632385
+   6   -0.26257531   -0.11483719   -0.11632375   -0.39628011
+   7   -0.04788849    0.04152445    0.42236733   -0.02012168
+   8    0.04152446   -0.04788851   -0.02012168    0.42236738
+   9    0.04439949    0.00177275   -0.03724429    0.04445405
+  10    0.00177274    0.04439949    0.04445404   -0.03724430
+  11   -0.04012375   -0.71429268    0.09915742   -0.44852830
+  12   -0.71429278   -0.04012374   -0.44852840    0.09915745
+  13    0.00133629   -0.07913019    0.00697154   -0.15434106
+  14   -0.07913020    0.00133630   -0.15434104    0.00697154
+  15    0.00123153   -0.12833479    0.00856553    0.08636600
+  16   -0.12833471    0.00123153    0.08636599    0.00856553
+  17   -0.00193238   -0.17239947   -0.00979629   -0.00276187
+  18   -0.17239948   -0.00193238   -0.00276186   -0.00979629
+  19    0.00044214    0.05353384    0.00141282    0.01165574
+  20    0.05353385    0.00044214    0.01165574    0.00141282
+
+                 5             6             7             8
+   1   -0.11483695   -0.26257531   -0.04788849    0.04152446
+   2   -0.26257547   -0.11483719    0.04152445   -0.04788851
+   3   -0.39628025   -0.11632375    0.42236733   -0.02012168
+   4   -0.11632385   -0.39628011   -0.02012168    0.42236738
+   5    7.56262687   -0.47079298   -0.05849206    0.03989941
+   6   -0.47079298    7.56262669    0.03989940   -0.05849209
+   7   -0.05849206    0.03989940    0.55994780    0.00334363
+   8    0.03989941   -0.05849209    0.00334363    0.55994780
+   9    0.40925803   -0.01762143   -0.09352796    0.00449351
+  10   -0.01762143    0.40925803    0.00449351   -0.09352796
+  11   -0.19030695    0.11405199    0.00921982   -0.14071150
+  12    0.11405194   -0.19030701   -0.14071147    0.00921983
+  13    0.02254814    0.00210260    0.00112257   -0.03705601
+  14    0.00210260    0.02254815   -0.03705600    0.00112257
+  15   -0.31295520    0.00280890    0.00378015    0.00338025
+  16    0.00280889   -0.31295524    0.00338025    0.00378015
+  17   -0.06080234   -0.00429325    0.00195208    0.00343892
+  18   -0.00429325   -0.06080234    0.00343892    0.00195208
+  19    0.00021605    0.00031590   -0.00017676    0.00009998
+  20    0.00031590    0.00021605    0.00009998   -0.00017676
+
+                 9            10            11            12
+   1    0.04439949    0.00177274   -0.04012375   -0.71429278
+   2    0.00177275    0.04439949   -0.71429268   -0.04012374
+   3   -0.03724429    0.04445404    0.09915742   -0.44852840
+   4    0.04445405   -0.03724430   -0.44852830    0.09915745
+   5    0.40925803   -0.01762143   -0.19030695    0.11405194
+   6   -0.01762143    0.40925803    0.11405199   -0.19030701
+   7   -0.09352796    0.00449351    0.00921982   -0.14071147
+   8    0.00449351   -0.09352796   -0.14071150    0.00921983
+   9    0.57078621    0.00243137   -0.13969839    0.00900513
+  10    0.00243137    0.57078621    0.00900513   -0.13969838
+  11   -0.13969839    0.00900513    7.40711386    0.00765436
+  12    0.00900513   -0.13969838    0.00765436    7.40711370
+  13   -0.00384315   -0.00045209    0.47529694    0.00046533
+  14   -0.00045209   -0.00384315    0.00046533    0.47529699
+  15   -0.06616702    0.00066287   -0.21104129    0.00019383
+  16    0.00066287   -0.06616702    0.00019382   -0.21104126
+  17   -0.00788000    0.00014960    0.08873654   -0.00008451
+  18    0.00014960   -0.00788000   -0.00008451    0.08873655
+  19   -0.00559390   -0.00008586    0.00661257    0.00000059
+  20   -0.00008586   -0.00559390    0.00000059    0.00661257
+
+                13            14            15            16
+   1    0.00133629   -0.07913020    0.00123153   -0.12833471
+   2   -0.07913019    0.00133630   -0.12833479    0.00123153
+   3    0.00697154   -0.15434104    0.00856553    0.08636599
+   4   -0.15434106    0.00697154    0.08636600    0.00856553
+   5    0.02254814    0.00210260   -0.31295520    0.00280889
+   6    0.00210260    0.02254815    0.00280890   -0.31295524
+   7    0.00112257   -0.03705600    0.00378015    0.00338025
+   8   -0.03705601    0.00112257    0.00338025    0.00378015
+   9   -0.00384315   -0.00045209   -0.06616702    0.00066287
+  10   -0.00045209   -0.00384315    0.00066287   -0.06616702
+  11    0.47529694    0.00046533   -0.21104129    0.00019382
+  12    0.00046533    0.47529699    0.00019383   -0.21104126
+  13    0.57396029    0.00012524   -0.04750302   -0.00006974
+  14    0.00012524    0.57396031   -0.00006974   -0.04750302
+  15   -0.04750302   -0.00006974    6.28333033    0.00000368
+  16   -0.00006974   -0.04750302    0.00000368    6.28333027
+  17    0.03132984   -0.00001338    0.41596111    0.00000590
+  18   -0.00001338    0.03132983    0.00000590    0.41596111
+  19   -0.10785953    0.00000146    0.33379773    0.00000063
+  20    0.00000146   -0.10785953    0.00000063    0.33379773
+
+                17            18            19            20
+   1   -0.00193238   -0.17239948    0.00044214    0.05353385
+   2   -0.17239947   -0.00193238    0.05353384    0.00044214
+   3   -0.00979629   -0.00276186    0.00141282    0.01165574
+   4   -0.00276187   -0.00979629    0.01165574    0.00141282
+   5   -0.06080234   -0.00429325    0.00021605    0.00031590
+   6   -0.00429325   -0.06080234    0.00031590    0.00021605
+   7    0.00195208    0.00343892   -0.00017676    0.00009998
+   8    0.00343892    0.00195208    0.00009998   -0.00017676
+   9   -0.00788000    0.00014960   -0.00559390   -0.00008586
+  10    0.00014960   -0.00788000   -0.00008586   -0.00559390
+  11    0.08873654   -0.00008451    0.00661257    0.00000059
+  12   -0.00008451    0.08873655    0.00000059    0.00661257
+  13    0.03132984   -0.00001338   -0.10785953    0.00000146
+  14   -0.00001338    0.03132983    0.00000146   -0.10785953
+  15    0.41596111    0.00000590    0.33379773    0.00000063
+  16    0.00000590    0.41596111    0.00000063    0.33379773
+  17    0.51972904   -0.00000730   -0.01448623    0.00000220
+  18   -0.00000730    0.51972903    0.00000220   -0.01448622
+  19   -0.01448623    0.00000220    0.43730568   -0.00000033
+  20    0.00000220   -0.01448622   -0.00000033    0.43730567
+
+end Mulliken analysis
+timing: 0.00171s wall, 0.01000s user + 0.00000s system = 0.01000s CPU (584.5%)
+memory: 359.839 MB 
+
+begin Lowdin analysis
+Lowdin orbital populations: 60, 5
+             1             2             3             4             5
+    1.99772899    0.43251792    1.32248553    1.35501664    1.01017994
+             6             7             8             9            10
+    1.99772899    0.43251789    1.32248553    1.35501662    1.01017994
+            11            12            13            14            15
+    1.99758808    0.47932807    1.32972073    1.33151375    0.98477871
+            16            17            18            19            20
+    1.99758808    0.47932807    1.32972074    1.33151375    0.98477871
+            21            22            23            24            25
+    1.99768393    0.48038223    1.35498210    1.31516119    0.99472763
+            26            27            28            29            30
+    1.99768393    0.48038223    1.35498210    1.31516119    0.99472762
+            31            32            33            34            35
+    0.82549969    0.82549969    0.81690798    0.81690798    1.99732378
+            36            37            38            39            40
+    0.49494749    1.30107349    1.37987444    1.00000050    1.99732378
+            41            42            43            44            45
+    0.49494748    1.30107347    1.37987441    1.00000049    0.82100108
+            46            47            48            49            50
+    0.82100111    1.99755184    0.56474707    1.38206834    1.36535520
+            51            52            53            54            55
+    1.01031322    1.99755184    0.56474707    1.38206834    1.36535520
+            56            57            58            59            60
+    1.01031323    0.83919601    0.83919601    0.82034444    0.82034443
+Lowdin atomic populations: 20, 5
+             1             2             3             4             5
+    6.11792902    6.11792898    6.12292935    6.12292935    6.14293708
+             6             7             8             9            10
+    6.14293707    0.82549969    0.82549969    0.81690798    0.81690798
+            11            12            13            14            15
+    6.17321970    6.17321964    0.82100108    0.82100111    6.32003568
+            16            17            18            19            20
+    6.32003569    0.83919601    0.83919601    0.82034444    0.82034443
+Lowdin atomic charges: 20, 5
+             1             2             3             4             5
+   -0.11792902   -0.11792898   -0.12292935   -0.12292935   -0.14293708
+             6             7             8             9            10
+   -0.14293707    0.17450031    0.17450031    0.18309202    0.18309202
+            11            12            13            14            15
+   -0.17321970   -0.17321964    0.17899892    0.17899889   -0.32003568
+            16            17            18            19            20
+   -0.32003569    0.16080399    0.16080399    0.17965556    0.17965557
+end Lowdin analysis
+timing: 0.00760s wall, 0.00000s user + 0.02000s system = 0.02000s CPU (263.0%)
+memory: 359.839 MB 
+
+begin Mayer analysis
+bond order threshold:     0.05000000
+bond orders: 63, 5
+           1 2           1 3           1 4           1 5           1 6
+    0.09081289    0.56229234    0.18603892    0.18188033    0.54535921
+           1 7          1 10          1 12          1 14          1 16
+    0.13385602    0.13804674    0.29397685    0.12306885    0.19814630
+           2 3           2 4           2 5           2 6           2 8
+    0.18603890    0.56229225    0.54535910    0.18188025    0.13385598
+           2 9          2 11          2 13          2 15           3 4
+    0.13804673    0.29397680    0.12306877    0.19814632    0.09447698
+           3 5           3 6           3 7           3 9          3 10
+    0.77017232    0.23225619    0.50999596    0.13532883    0.05571424
+          3 11          3 12          3 16           4 5           4 6
+    0.10994194    0.10707219    0.14481674    0.23225625    0.77017229
+           4 8           4 9          4 10          4 11          4 12
+    0.50999598    0.05571424    0.13532884    0.10707225    0.10994195
+          4 15           5 6           5 7           5 8           5 9
+    0.14481677    0.11688728    0.12236296    0.05471548    0.50176900
+          5 11          5 12           6 7           6 8          6 10
+    0.20017029    0.09860227    0.05471546    0.12236296    0.50176898
+          6 11          6 12         11 13         11 15         11 17
+    0.09860233    0.20017020    0.51857276    1.31002753    0.14405586
+         11 19         12 14         12 16         12 18         12 20
+    0.11109735    0.51857279    1.31002760    0.14405586    0.11109735
+         13 15         14 16         15 17         15 19         16 18
+    0.13909799    0.13909796    0.68867036    0.66035404    0.68867036
+         16 20         17 19         18 20
+    0.66035404    0.07020929    0.07020929
+Vtotal: 20, 5
+             1             2             3             4             5
+    2.62063850    2.62063803    2.91411117    2.91411130    2.91983513
+             6             7             8             9            10
+    2.91983500    0.90794569    0.90794568    0.91894528    0.91894529
+            11            12            13            14            15
+    2.91233829    2.91233825    0.90077001    0.90077007    3.25101724
+            16            17            18            19            20
+    3.25101721    0.95456632    0.95456631    0.92002118    0.92002118
+Vfree: 20, 5
+             1             2             3             4             5
+    0.00000000    0.00000000    0.00000000    0.00000000    0.00000000
+             6             7             8             9            10
+    0.00000000    0.00000000    0.00000000    0.00000000    0.00000000
+            11            12            13            14            15
+    0.00000000    0.00000000    0.00000000    0.00000000    0.00000000
+            16            17            18            19            20
+    0.00000000    0.00000000    0.00000000    0.00000000    0.00000000
+end Mayer analysis
+timing: 0.00067s wall, 0.00000s user + 0.00000s system = 0.00000s CPU (n/a%)
+memory: 359.811 MB 
+
+begin Gopinathan-Jug analysis
+bond order threshold:     0.05000000
+bond orders: 21, 5
+           1 3           1 6          1 12           2 4           2 5
+    0.49570218    0.50607799    0.37840905    0.49570217    0.50607799
+          2 11           3 5           3 7           4 6           4 8
+    0.37840905    0.57525588    0.38842594    0.57525588    0.38842594
+           5 6           5 9          6 10         11 13         11 15
+    0.05608941    0.38061654    0.38061654    0.38264199    0.77924811
+         12 14         12 16         15 17         15 19         16 18
+    0.38264200    0.77924812    0.39891058    0.39982909    0.39891058
+         16 20
+    0.39982909
+end Gopinathan-Jug analysis
+timing: 0.00592s wall, 0.01000s user + 0.01000s system = 0.02000s CPU (337.9%)
+memory: 359.811 MB 
+
+begin Nalewajski-Mrozek analysis
+bond order threshold:     0.05000000
+bond orders: 59, 5
+           1 2           1 3           1 4           1 5           1 6
+    0.11556629    1.39092676    0.13996890    0.13999527    1.42190632
+           1 7          1 10          1 12          1 14          1 15
+    0.07371522    0.07710609    1.06100071    0.07122376    0.05671221
+          1 16           2 3           2 4           2 5           2 6
+    0.13264602    0.13996891    1.39092674    1.42190632    0.13999526
+           2 8           2 9          2 11          2 13          2 15
+    0.07371522    0.07710609    1.06100072    0.07122376    0.13264603
+          2 16           3 4           3 5           3 6           3 7
+    0.05671221    0.12271219    1.59401236    0.12967783    0.93806609
+           3 9          3 11          3 12          3 16           4 5
+    0.07213030    0.05723716    0.10335304    0.11738159    0.12967782
+           4 6           4 8          4 10          4 11          4 12
+    1.59401236    0.93806609    0.07213030    0.10335305    0.05723716
+          4 15           5 6           5 7           5 9          5 11
+    0.11738160    0.15562837    0.07017154    0.92185689    0.10999835
+          5 15           6 8          6 10          6 12          6 16
+    0.05346006    0.07017154    0.92185689    0.10999835    0.05346006
+         11 13         11 15         11 17         11 19         12 14
+    0.92393225    2.13599536    0.10673994    0.10595030    0.92393227
+         12 16         12 18         12 20         13 15         14 16
+    2.13599538    0.10673994    0.10595029    0.08299714    0.08299714
+         15 17         15 19         16 18         16 20
+    0.95185274    0.95676659    0.95185274    0.95676659
+Vab: 20x20, 4
+                 1             2             3             4
+   1    0.00000000    0.04062557    0.49570218    0.04988249
+   2    0.04062557    0.00000000    0.04988249    0.49570217
+   3    0.49570218    0.04988249    0.00000000    0.04434403
+   4    0.04988249    0.49570217    0.04434403    0.00000000
+   5    0.04982643    0.50607799    0.57525588    0.04679884
+   6    0.50607799    0.04982643    0.04679884    0.57525588
+   7    0.03004197    0.01267734    0.38842594    0.00158779
+   8    0.01267734    0.03004197    0.00158779    0.38842594
+   9    0.01186176    0.03138196    0.02982657    0.01197452
+  10    0.03138196    0.01186176    0.01197452    0.02982657
+  11    0.00145616    0.37840905    0.02069948    0.03737702
+  12    0.37840905    0.00145616    0.03737701    0.02069948
+  13    0.00051705    0.02900657    0.00074726    0.00150513
+  14    0.02900657    0.00051705    0.00150513    0.00074726
+  15    0.02038599    0.04768146    0.00087323    0.04278964
+  16    0.04768145    0.02038599    0.04278964    0.00087323
+  17    0.00009006    0.00285739    0.00040284    0.00041106
+  18    0.00285739    0.00009006    0.00041106    0.00040284
+  19    0.00022979    0.01629047    0.00026712    0.00134753
+  20    0.01629047    0.00022979    0.00134753    0.00026712
+
+                 5             6             7             8
+   1    0.04982643    0.50607799    0.03004197    0.01267734
+   2    0.50607799    0.04982643    0.01267734    0.03004197
+   3    0.57525588    0.04679884    0.38842594    0.00158779
+   4    0.04679884    0.57525588    0.00158779    0.38842594
+   5    0.00000000    0.05608941    0.02901172    0.01232575
+   6    0.05608941    0.00000000    0.01232575    0.02901172
+   7    0.02901172    0.01232575    0.00000000    0.00164299
+   8    0.01232575    0.02901172    0.00164299    0.00000000
+   9    0.38061654    0.00179020    0.00354583    0.00054635
+  10    0.00179020    0.38061654    0.00054635    0.00354583
+  11    0.03972729    0.01486271    0.00067747    0.00169368
+  12    0.01486270    0.03972729    0.00169368    0.00067747
+  13    0.01084368    0.00064608    0.00086630    0.00008474
+  14    0.00064608    0.01084368    0.00008474    0.00086630
+  15    0.01946189    0.00129338    0.00052414    0.00063194
+  16    0.00129338    0.01946189    0.00063194    0.00052414
+  17    0.00051793    0.00012227    0.00000116    0.00045846
+  18    0.00012227    0.00051793    0.00045846    0.00000116
+  19    0.00173706    0.00039172    0.00000620    0.00002505
+  20    0.00039172    0.00173706    0.00002505    0.00000620
+
+                 9            10            11            12
+   1    0.01186176    0.03138196    0.00145616    0.37840905
+   2    0.03138196    0.01186176    0.37840905    0.00145616
+   3    0.02982657    0.01197452    0.02069948    0.03737701
+   4    0.01197452    0.02982657    0.03737702    0.02069948
+   5    0.38061654    0.00179020    0.03972729    0.01486270
+   6    0.00179020    0.38061654    0.01486271    0.03972729
+   7    0.00354583    0.00054635    0.00067747    0.00169368
+   8    0.00054635    0.00354583    0.00169368    0.00067747
+   9    0.00000000    0.00115193    0.00365218    0.00064409
+  10    0.00115193    0.00000000    0.00064409    0.00365218
+  11    0.00365218    0.00064409    0.00000000    0.00172505
+  12    0.00064409    0.00365218    0.00172505    0.00000000
+  13    0.00034598    0.00010087    0.38264199    0.00007709
+  14    0.00010087    0.00034598    0.00007709    0.38264200
+  15    0.00081254    0.00037464    0.77924811    0.00008114
+  16    0.00037464    0.00081254    0.00008114    0.77924812
+  17    0.00444713    0.00013674    0.04432619    0.00000847
+  18    0.00013674    0.00444713    0.00000847    0.04432619
+  19    0.00001458    0.00001425    0.04387422    0.00000971
+  20    0.00001425    0.00001458    0.00000971    0.04387422
+
+                13            14            15            16
+   1    0.00051705    0.02900657    0.02038599    0.04768145
+   2    0.02900657    0.00051705    0.04768146    0.02038599
+   3    0.00074726    0.00150513    0.00087323    0.04278964
+   4    0.00150513    0.00074726    0.04278964    0.00087323
+   5    0.01084368    0.00064608    0.01946189    0.00129338
+   6    0.00064608    0.01084368    0.00129338    0.01946189
+   7    0.00086630    0.00008474    0.00052414    0.00063194
+   8    0.00008474    0.00086630    0.00063194    0.00052414
+   9    0.00034598    0.00010087    0.00081254    0.00037464
+  10    0.00010087    0.00034598    0.00037464    0.00081254
+  11    0.38264199    0.00007709    0.77924811    0.00008114
+  12    0.00007709    0.38264200    0.00008114    0.77924812
+  13    0.00000000    0.00012881    0.03468783    0.00003224
+  14    0.00012881    0.00000000    0.00003224    0.03468783
+  15    0.03468783    0.00003224    0.00000000    0.01371706
+  16    0.00003224    0.03468783    0.01371706    0.00000000
+  17    0.01814719    0.00000310    0.39891058    0.00001159
+  18    0.00000310    0.01814719    0.00001159    0.39891058
+  19    0.00359517    0.00000260    0.39982909    0.00000801
+  20    0.00000260    0.00359517    0.00000801    0.39982909
+
+                17            18            19            20
+   1    0.00009006    0.00285739    0.00022979    0.01629047
+   2    0.00285739    0.00009006    0.01629047    0.00022979
+   3    0.00040284    0.00041106    0.00026712    0.00134753
+   4    0.00041106    0.00040284    0.00134753    0.00026712
+   5    0.00051793    0.00012227    0.00173706    0.00039172
+   6    0.00012227    0.00051793    0.00039172    0.00173706
+   7    0.00000116    0.00045846    0.00000620    0.00002505
+   8    0.00045846    0.00000116    0.00002505    0.00000620
+   9    0.00444713    0.00013674    0.00001458    0.00001425
+  10    0.00013674    0.00444713    0.00001425    0.00001458
+  11    0.04432619    0.00000847    0.04387422    0.00000971
+  12    0.00000847    0.04432619    0.00000971    0.04387422
+  13    0.01814719    0.00000310    0.00359517    0.00000260
+  14    0.00000310    0.01814719    0.00000260    0.00359517
+  15    0.39891058    0.00001159    0.39982909    0.00000801
+  16    0.00001159    0.39891058    0.00000801    0.39982909
+  17    0.00000000    0.00000183    0.01621306    0.00000399
+  18    0.00000183    0.00000000    0.00000399    0.01621307
+  19    0.01621306    0.00000399    0.00000000    0.00000232
+  20    0.00000399    0.01621307    0.00000232    0.00000000
+
+Vi: 20, 5
+             1             2             3             4             5
+    1.54043184    1.54043186    1.49299182    1.49299182    1.49692508
+             6             7             8             9            10
+    1.49692508    0.25761259    0.25761259    0.25838067    0.25838067
+            11            12            13            14            15
+    1.49052022    1.49052021    0.25801015    0.25801015    1.46086248
+            16            17            18            19            20
+    1.46086248    0.25646448    0.25646448    0.25806903    0.25806903
+Vc: 20, 5
+             1             2             3             4             5
+    0.05059659    0.05059659    0.05356818    0.05356818    0.05358215
+             6             7             8             9            10
+    0.05358215    0.00000000    0.00000000    0.00000000    0.00000000
+            11            12            13            14            15
+    0.05317508    0.05317508    0.00000000    0.00000000    0.05317371
+            16            17            18            19            20
+    0.05317371    0.00000000    0.00000000    0.00000000    0.00000000
+end Nalewajski-Mrozek analysis
+timing: 0.00935s wall, 0.01000s user + 0.01000s system = 0.02000s CPU (213.8%)
+memory: 359.811 MB 
+
+end results
+timing: 0.02873s wall, 0.04000s user + 0.06000s system = 0.10000s CPU (348.1%)
+memory: 359.811 MB 
+
+end scf
+timing: 356.63877s wall, 476.88000s user + 601.61000s system = 1078.49000s CPU (302.4%)
+memory: 359.811 MB 
+
+integral cache searches:     1.00000000
+integral cache hit ratio:     1.00000000
+integral cache searches:     6.00000000
+integral cache hit ratio:     0.33333333
+termination: normal
+end niedoida
+timing: 357.13555s wall, 477.48000s user + 602.42000s system = 1079.90000s CPU (302.4%)
+memory: 1.29401 MB 
+
