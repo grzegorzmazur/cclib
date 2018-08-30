@@ -40,7 +40,7 @@ class Molcas(logfileparser.Logfile):
     def before_parsing(self):
         # Compile the regex for extracting the element symbol from the
         # atom label in the "Molecular structure info" block.
-        self.re_atomelement = re.compile('([a-zA-Z]+)\d+')   
+        self.re_atomelement = re.compile('([a-zA-Z]+)\d+')
 
         # Compile the dashes-and-or-spaces-only regex.
         self.re_dashes_and_spaces = re.compile('^[\s-]+$')
@@ -51,13 +51,27 @@ class Molcas(logfileparser.Logfile):
     def extract(self, inputfile, line):
         """Extract information from the file object inputfile."""
 
+        # Extract the version number and optionally the Git tag and hash.
+        if "version" in line:
+            match = re.search(r"\s{2,}version\s(\d*\.\d*)", line)
+            if match:
+                package_version = match.groups()[0]
+                self.metadata["package_version"] = package_version
+        # Don't add revision information to the main package version for now.
+        if "tag" in line:
+            tag = line.split()[-1]
+        if "build" in line:
+            match = re.search(r"\*\s*build\s(\S*)\s*\*", line)
+            if match:
+                revision = match.groups()[0]
+
         ## This section is present when executing &GATEWAY.
         # ++    Molecular structure info:
         #       -------------------------
 
-        #                     ************************************************ 
-        #                     **** Cartesian Coordinates / Bohr, Angstrom **** 
-        #                     ************************************************ 
+        #                     ************************************************
+        #                     **** Cartesian Coordinates / Bohr, Angstrom ****
+        #                     ************************************************
 
         #      Center  Label                x              y              z                     x              y              z
         #         1      C1               0.526628      -2.582937       0.000000              0.278679      -1.366832       0.000000
@@ -127,7 +141,7 @@ class Molcas(logfileparser.Logfile):
         #  Mulliken charges per centre and basis function type
         #  ---------------------------------------------------
 
-        #         C1    
+        #         C1
         #  1s     2.0005
         #  2s     2.0207
         #  2px    0.0253
@@ -222,42 +236,27 @@ class Molcas(logfileparser.Logfile):
         #  Threshold at which QNR/C2DIIS is turned on 0.75E-01
         #  Threshold for Norm(delta) (QNR/C2DIIS)     0.20E-04
         if line[:34] == '++    Optimization specifications:':
-
-            scftargets = []
-            while not line[6:37] == 'Threshold for SCF energy change':
-                line = next(inputfile)
-
-            if line[6:37] == 'Threshold for SCF energy change':
-                target = float(line.split()[-1])
-                scftargets.append(target)
-
+            self.skip_lines(inputfile, ['d', 'b'])
             line = next(inputfile)
+            if line.strip().startswith('SCF'):
+                scftargets = []
+                self.skip_lines(inputfile,
+                                ['Minimized', 'Number', 'Maximum', 'Maximum'])
+                lines = [next(inputfile) for i in range(7)]
+                targets = [
+                    'Threshold for SCF energy change',
+                    'Threshold for density matrix',
+                    'Threshold for Fock matrix',
+                    'Threshold for Norm(delta)',
+                ]
+                for y in targets:
+                    scftargets.extend([float(x.split()[-1]) for x in lines if y in x])
 
-            if line[6:34] == 'Threshold for density matrix':
-                target = float(line.split()[-1])
-                scftargets.append(target)
-
-            line = next(inputfile)
-
-            if line[6:31] == 'Threshold for Fock matrix':
-                target = float(line.split()[-1])
-                scftargets.append(target)
-
-            self.skip_lines(inputfile,['Threshold for linear dependence', 'Threshold at which DIIS is turned on', \
-                                         'Threshold at which QNR/C2DIIS is turned on'])
-            line = next(inputfile)
-
-            if line[6:31] == 'Threshold for Norm(delta)':
-                target = float(line.split()[-1])
-                scftargets.append(target)
-
-            if not hasattr(self, 'scftargets'):
-                self.scftargets = []
-            self.scftargets.append(scftargets)
+                self.append_attribute('scftargets', scftargets)
 
         #  ++ Convergence information
         #                                     SCF        iterations: Energy and convergence statistics
-  
+        #
         #  Iter     Tot. SCF       One-electron     Two-electron   Energy   Max Dij or  Max Fij    DNorm      TNorm     AccCon    Time
         #             Energy          Energy          Energy       Change   Delta Norm                                          in Sec.
         #     1    -36.83817703    -50.43096166     13.59278464  0.00E+00   0.16E+00*  0.27E+01*   0.30E+01   0.33E+02   NoneDa    0.
@@ -267,19 +266,20 @@ class Molcas(logfileparser.Logfile):
         #     5    -37.33596239    -49.47021484     12.13425245 -0.20E-01*  0.59E-01*  0.59E-01*   0.37E+00   0.16E+01   Damp      0.
         if line[46:91] == 'iterations: Energy and convergence statistics':
 
-            self.skip_line(inputfile,'blank')
+            self.skip_line(inputfile, 'blank')
 
-            while line.split() != ['Energy', 'Energy', 'Energy', 'Change', 'Delta', 'Norm', 'in', 'Sec.']: 
+            while line.split() != ['Energy', 'Energy', 'Energy', 'Change', 'Delta', 'Norm', 'in', 'Sec.']:
                 line = next(inputfile)
 
             scfvalues = []
             line = next(inputfile)
             while line.split()[0] != 'Convergence':
                 if line.split()[0].isdigit():
-                    energy = float(line.split()[4].replace('*',''))
-                    density = float(line.split()[5].replace('*',''))
-                    fock = float(line.split()[6].replace('*',''))
-                    dnorm = float(line.split()[7].replace('*',''))
+                    info = line.split()
+                    energy = float(info[4].replace('*', ''))
+                    density = float(info[5].replace('*', ''))
+                    fock = float(info[6].replace('*', ''))
+                    dnorm = float(info[7].replace('*', ''))
                     scfvalues.append([energy, density, fock, dnorm])
 
                 try:
@@ -290,9 +290,7 @@ class Molcas(logfileparser.Logfile):
                     self.logger.warning('File terminated before end of last SCF!')
                     break
 
-            if not hasattr(self, "scfvalues"):
-                self.scfvalues = []
-            self.scfvalues.append(scfvalues)
+            self.append_attribute('scfvalues', scfvalues)
 
         #  Harmonic frequencies in cm-1
         #
@@ -323,7 +321,7 @@ class Molcas(logfileparser.Logfile):
         # ++ Thermochemistry
         if line[1:29] == 'Harmonic frequencies in cm-1':
 
-            self.skip_line(inputfile,'blank')
+            self.skip_line(inputfile, 'blank')
             line = next(inputfile)
 
             while 'Thermochemistry' not in line:
@@ -331,7 +329,7 @@ class Molcas(logfileparser.Logfile):
                 if 'Frequency:' in line:
                     if not hasattr(self, 'vibfreqs'):
                         self.vibfreqs = []
-                    vibfreqs = [float(i.replace('i','-')) for i in line.split()[1:]]
+                    vibfreqs = [float(i.replace('i', '-')) for i in line.split()[1:]]
                     self.vibfreqs.extend(vibfreqs)
 
                 if 'Intensity:' in line:
@@ -340,8 +338,8 @@ class Molcas(logfileparser.Logfile):
                     vibirs = map(float, line.split()[1:])
                     self.vibirs.extend(vibirs)
 
-                if 'Red.' in line: 
-                    self.skip_line(inputfile,'blank')
+                if 'Red.' in line:
+                    self.skip_line(inputfile, 'blank')
                     line = next(inputfile)
                     if not hasattr(self, 'vibdisps'):
                         self.vibdisps = []
@@ -352,7 +350,7 @@ class Molcas(logfileparser.Logfile):
                         atomindex = int(re.search(r'\d+$', line.split()[0]).group()) - 1
                         numbermodes = len(numbers)
                         if len(disps) == 0:
-                            # Appends empty array of the following 
+                            # Appends empty array of the following
                             # dimensions (numbermodes, natom, 0) to disps.
                             for mode in range(numbermodes):
                                 disps.append([[] for x in range(0, self.natom)])
@@ -434,14 +432,14 @@ class Molcas(logfileparser.Logfile):
                     enthalpy_values.append(float(next(inputfile).split()[1]))
                     free_energy_values.append(float(next(inputfile).split()[3]))
 
-                line=next(inputfile)
+                line = next(inputfile)
             # When calculations for more than one temperature value are
             # performed, the values corresponding to room temperature (298.15 K)
             # are returned and if no calculations are performed for 298.15 K, then
             # the values corresponding last temperature value are returned.
-            index  = -1
+            index = -1
             if 298.15 in temperature_values:
-            	index = temperature_values.index(298.15)
+                index = temperature_values.index(298.15)
 
             self.set_attribute('temperature', temperature_values[index])
             if len(temperature_values) > 1:
@@ -498,7 +496,7 @@ class Molcas(logfileparser.Logfile):
         #   + Max + 1.2039E-01  1.8000E-03     No    + 1.6711E-04  4.5000E-04     Yes   +
         #   +-----+----------------------------------+----------------------------------+
         if 'Convergence criterion on energy change' in line:
-            self.energy_threshold =  float(line.split()[6])
+            self.energy_threshold = float(line.split()[6])
             # If energy change threshold equals zero,
             # then energy change is not a criteria for convergence.
             if self.energy_threshold == 0:
@@ -519,9 +517,9 @@ class Molcas(logfileparser.Logfile):
                     line = next(inputfile)
                 self.geovalues.append([float(line.split()[2])])
                 line = next(inputfile)
-            # Along with energy change, RMS and Max values of change in 
+            # Along with energy change, RMS and Max values of change in
             # Cartesian Diaplacement and Gradients are used as optimization
-            # criteria. 
+            # criteria.
             self.skip_lines(inputfile, ['border', 'header', 'header', 'border'])
             line = next(inputfile)
             assert '+ RMS +' in line
@@ -558,7 +556,7 @@ class Molcas(logfileparser.Logfile):
         #
         #  --
         if 'Nuclear coordinates for the next iteration / Angstrom' in line:
-            self.skip_lines(inputfile, ['s','header'])
+            self.skip_lines(inputfile, ['s', 'header'])
             line = next(inputfile)
 
             atomcoords = []
@@ -605,7 +603,7 @@ class Molcas(logfileparser.Logfile):
         #    H19             -0.021315       -4.934913       -0.029666
         #    H20             -1.431994       -3.721026       -0.041078
         if 'Nuclear coordinates of the final structure / Angstrom' in line:
-            self.skip_lines(inputfile, ['s','header'])
+            self.skip_lines(inputfile, ['s', 'header'])
             line = next(inputfile)
 
             atomcoords = []
@@ -616,6 +614,130 @@ class Molcas(logfileparser.Logfile):
 
             self.atomcoords.append(atomcoords)
 
+        #        All orbitals with orbital energies smaller than  E(LUMO)+0.5 are printed
+        #
+        #  ++    Molecular orbitals:
+        #        -------------------
+        #
+        #        Title: RKS-DFT orbitals
+        #
+        #        Molecular orbitals for symmetry species 1: a
+        #
+        #            Orbital        1         2         3         4         5         6         7         8         9        10
+        #            Energy      -10.0179  -10.0179  -10.0075  -10.0075  -10.0066  -10.0066  -10.0056  -10.0055   -9.9919   -9.9919
+        #            Occ. No.      2.0000    2.0000    2.0000    2.0000    2.0000    2.0000    2.0000    2.0000    2.0000    2.0000
+        #
+        #          1 C1    1s     -0.6990    0.6989    0.0342    0.0346    0.0264   -0.0145   -0.0124   -0.0275   -0.0004   -0.0004
+        #          2 C1    2s     -0.0319    0.0317   -0.0034   -0.0033   -0.0078    0.0034    0.0041    0.0073   -0.0002   -0.0002
+        # ...
+        # ...
+        #         58 H18   1s      0.2678
+        #         59 H19   1s     -0.2473
+        #         60 H20   1s      0.1835
+        #  --
+        if '++    Molecular orbitals:' in line:
+            self.skip_lines(inputfile, ['d', 'b'])
+            line = next(inputfile)
+            if 'Natural orbitals' not in line:
+                self.skip_lines(inputfile, ['b', 'symm'])
+                line = next(inputfile)
+                moenergies = []
+                homos = 0
+                mocoeffs = []
+                while line[:2] != '--':
+                    line = next(inputfile)
+                    if line.strip().startswith('Orbital'):
+                        orbital_index = line.split()[1:]
+                        for i in orbital_index:
+                            mocoeffs.append([])
+
+                    if 'Energy' in line:
+                        energies = [utils.convertor(float(x), 'hartree', 'eV') for x in line.split()[1:]]
+                        moenergies.extend(energies)
+
+                    if 'Occ. No.' in line:
+                        for i in line.split()[2:]:
+                            if float(i) != 0:
+                                homos += 1
+
+                    aonames = []
+                    tokens = line.split()
+                    if tokens and tokens[0] == '1':
+                        while tokens and tokens[0] != '--':
+                            aonames.append("{atom}_{orbital}".format(atom=tokens[1], orbital=tokens[2]))
+                            info = tokens[3:]
+                            j = 0
+                            for i in orbital_index:
+                                mocoeffs[int(i)-1].append(float(info[j]))
+                                j += 1
+                            line = next(inputfile)
+                            tokens = line.split()
+                        self.set_attribute('aonames', aonames)
+
+                if len(moenergies) != self.nmo:
+                    moenergies.extend([numpy.nan for x in range(self.nmo - len(moenergies))])
+
+                self.append_attribute('moenergies', moenergies)
+
+                if not hasattr(self, 'homos'):
+                    self.homos = []
+                self.homos.extend([homos-1])
+
+                while len(mocoeffs) < self.nmo:
+                    nan_array = [numpy.nan for i in range(self.nbasis)]
+                    mocoeffs.append(nan_array)
+
+                self.append_attribute('mocoeffs', mocoeffs)
+
+        ## Parsing MP energy from the &MBPT2 module.
+        #  Conventional algorithm used...
+        #
+        #         SCF energy                           =      -74.9644564043 a.u.
+        #         Second-order correlation energy      =       -0.0364237923 a.u.
+        #
+        #         Total energy                         =      -75.0008801966 a.u.
+        #         Reference weight ( Cref**2 )         =        0.98652
+        #
+        #  ::    Total MBPT2 energy                              -75.0008801966
+        #
+        #
+        #         Zeroth-order energy (E0)             =      -36.8202538520 a.u.
+        #
+        #         Shanks-type energy S1(E)             =      -75.0009150108 a.u.
+        if 'Total MBPT2 energy' in line:
+            mpenergies = []
+            mpenergies.append(utils.convertor(self.float(line.split()[4]), 'hartree', 'eV'))
+            if not hasattr(self, 'mpenergies'):
+                self.mpenergies = []
+            self.mpenergies.append(mpenergies)
+
+        # Parsing data ccenergies from &CCSDT module.
+        #  --- Start Module: ccsdt at Thu Jul 26 14:03:23 2018 ---
+        #
+        #  ()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()
+        #
+        #                                                 &CCSDT
+        # ...
+        # ...
+        #          14          -75.01515915      -0.05070274      -0.00000029
+        #          15          -75.01515929      -0.05070289      -0.00000014
+        #          16          -75.01515936      -0.05070296      -0.00000007
+        #       Convergence after                    17  Iterations
+        #
+        #
+        #      Total energy (diff) :     -75.01515936      -0.00000007
+        #      Correlation energy  :        -0.0507029554992
+        if 'Start Module: ccsdt' in line:
+            self.skip_lines(inputfile, ['b', '()', 'b'])
+            line = next(inputfile)
+            if '&CCSDT' in line:
+                while not line.strip().startswith('Total energy (diff)'):
+                    line = next(inputfile)
+
+                ccenergies = utils.convertor(self.float(line.split()[4]), 'hartree', 'eV')
+                if not hasattr(self, 'ccenergies'):
+                    self.ccenergies= []
+                self.ccenergies.append(ccenergies)
 
 
 if __name__ == '__main__':

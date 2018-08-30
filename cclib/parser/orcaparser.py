@@ -50,7 +50,7 @@ class ORCA(logfileparser.Logfile):
     def extract(self, inputfile, line):
         """Extract information from the file object inputfile."""
 
-        # Extract the version number
+        # Extract the version number.
         if "Program Version" == line.strip()[:15]:
             self.metadata["package_version"] = line.split()[2]
 
@@ -1089,6 +1089,14 @@ States  Energy Wavelength    D2        m2        Q2         D2+m2+Q2       D2/TO
                 except AssertionError:
                     self.logger.warning('Overwriting previous multipole moments with new values')
                     self.moments = [reference, dipole]
+
+        if "Molecular Dynamics Iteration" in line:
+            self.skip_lines(inputfile, ['d', 'ORCA MD', 'd', 'New Coordinates'])
+            line = next(inputfile)
+            tokens = line.split()
+            assert tokens[0] == "time"
+            time = utils.convertor(float(tokens[2]), "time_au", "fs")
+            self.append_attribute('time', time)
 
         # Static polarizability.
         if line.strip() == "THE POLARIZABILITY TENSOR":

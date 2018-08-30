@@ -277,6 +277,13 @@ def testGAMESS_GAMESS_US2013_N_UHF_out(logfile):
     """An UHF job that has an LZ value analysis between the alpha and beta orbitals."""
     assert len(logfile.data.moenergies) == 2
 
+def testGAMESS_GAMESS_US2014_CdtetraM1B3LYP_log(logfile):
+    """This logfile had coefficients for only 80 molecular orbitals."""
+    assert len(logfile.data.mocoeffs) == 2
+    assert numpy.count_nonzero(logfile.data.mocoeffs[0][79-1:, :]) == 258
+    assert numpy.count_nonzero(logfile.data.mocoeffs[0][80-1: 0:]) == 0
+    assert logfile.data.mocoeffs[0].all() == logfile.data.mocoeffs[1].all()
+
 def testGAMESS_WinGAMESS_dvb_td_trplet_2007_03_24_r1_out(logfile):
     """Do some basic checks for this old unit test that was failing.
 
@@ -556,14 +563,6 @@ def testGaussian_Gaussian09_stopiter_gaussian_out(logfile):
     """Check to ensure that an incomplete SCF is handled correctly."""
     assert len(logfile.data.scfvalues[0]) == 4
 
-def testGaussian_Gaussian09_dvb_bomd_out(logfile):
-    """
-    Check that the number of energies and geometries corresponds to 
-    integrated steps, and not all the energies and geometries found in the file.
-    """
-    assert logfile.data.scfenergies.shape == (35,)
-    assert logfile.data.atomcoords.shape == (35,20,3)
-    assert logfile.data.time.shape == (35,)
 
 # Jaguar #
 
@@ -799,6 +798,11 @@ def testPsi4_Psi4_beta5_stopiter_psi_hf_out(logfile):
 def testPsi4_Psi4_0_5_water_fdgrad_out(logfile):
     """Ensure that finite difference gradients are parsed."""
     assert hasattr(logfile.data, 'grads')
+    assert logfile.data.grads.shape == (1, 3, 3)
+    assert abs(logfile.data.grads[0, 0, 2] - 0.05498126903657) < 1.0e-12
+    # In C2v symmetry, there are 5 unique displacements for the
+    # nuclear gradient, and this is at the MP2 level.
+    assert logfile.data.mpenergies.shape == (5, 1)
 
 # Q-Chem #
 

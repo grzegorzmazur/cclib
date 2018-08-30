@@ -65,6 +65,27 @@ class Turbomole(logfileparser.Logfile):
 
     def before_parsing(self):
         self.geoopt = False # Is this a GeoOpt? Needed for SCF targets/values.
+        self.periodic_table = utils.PeriodicTable()
+
+    @staticmethod
+    def split_molines(inline):
+        """Splits the lines containing mocoeffs (each of length 20)
+        and converts them to float correctly.
+        """
+        line = inline.replace("D", "E")
+        f1 = line[0:20]
+        f2 = line[20:40]
+        f3 = line[40:60]
+        f4 = line[60:80]
+
+        if(len(f4) > 1):
+            return [float(f1), float(f2), float(f3), float(f4)]
+        if(len(f3) > 1):
+            return [float(f1), float(f2), float(f3)]
+        if(len(f2) > 1):
+            return [float(f1), float(f2)]
+        if(len(f1) > 1):
+            return [float(f1)]
 
     def extract(self, inputfile, line):
         """Extract information from the file object inputfile."""
@@ -86,6 +107,17 @@ class Turbomole(logfileparser.Logfile):
             self.set_attribute('nbasis', nmo)
             self.set_attribute('nmo', nmo)
 
+        # Extract the version number and optionally the build number.
+        searchstr = ": TURBOMOLE"
+        index = line.find(searchstr)
+        if index > -1:
+            line = line[index + len(searchstr):]
+            tokens = line.split()
+            self.metadata["package_version"] = tokens[0][1:].replace("-", ".")
+            # Don't add revision information to the main package version for now.
+            if tokens[1] == "(":
+                revision = tokens[2]
+
         ## Atomic coordinates in job.last:
         #              +--------------------------------------------------+
         #              | Atomic coordinate, charge and isotop information |
@@ -104,54 +136,254 @@ class Turbomole(logfileparser.Logfile):
         #    -0.92683849   -0.00007461   -2.49592179    c      3    6.000    0     0
         #    -1.65164853   -0.00009927   -4.45456858    h      1    1.000    0     0
         if 'Atomic coordinate, charge and isotop information' in line:
-            self.skip_lines(inputfile,['border', 'b', 'b'])
+            while 'atomic coordinates' not in line:
+                line = next(inputfile)
+
+            atomcoords = []
+            atomnos = []
             line = next(inputfile)
-            if 'atomic coordinates' in line:
-                if not hasattr(self, 'atomcoords'):
-                    self.atomcoords = []
-
-                atomcoords = []
-                atomnos = []
+            while len(line) > 2:
+                atomnos.append(self.periodic_table.number[line.split()[3].upper()])
+                atomcoords.append([utils.convertor(float(x), "bohr", "Angstrom") 
+                                   for x in line.split()[:3]])
                 line = next(inputfile)
-                while len(line) > 2:
-                    atomnos.append(utils.PeriodicTable().number[line.split()[3].upper()])
-                    atomcoords.append([utils.convertor(float(x), "bohr", "Angstrom") for x in line.split()[:3]])
+
+            self.append_attribute('atomcoords', atomcoords)
+            self.set_attribute('atomnos', atomnos)
+
+        # Frequency values in aoforce.out
+        #        mode               7        8        9       10       11       12
+        #
+        #      frequency          53.33    88.32   146.85   171.70   251.75   289.44
+        #
+        #      symmetry            a        a        a        a        a        a
+        #
+        #         IR               YES      YES      YES      YES      YES      YES
+        # |dDIP/dQ|   (a.u.)     0.0002   0.0000   0.0005   0.0004   0.0000   0.0000
+        # intensity (km/mol)       0.05     0.00     0.39     0.28     0.00     0.00
+        # intensity (  %   )       0.05     0.00     0.40     0.28     0.00     0.00
+        #
+        #        RAMAN             YES      YES      YES      YES      YES      YES
+        #
+        #   1   c           x   0.00000  0.00001  0.00000 -0.01968 -0.04257  0.00001
+        #                   y  -0.08246 -0.08792  0.02675 -0.00010  0.00000  0.17930
+        #                   z   0.00001  0.00003  0.00004 -0.10350  0.11992 -0.00003
+        if 'NORMAL MODES and VIBRATIONAL FREQUENCIES (cm**(-1))' in line:
+            vibfreqs, vibsyms, vibirs, vibdisps = [], [], [], []
+            while '****  force : all done  ****' not in line:
+                if line.strip().startswith('frequency'):
+                    freqs = [float(i.replace('i', '-')) for i in line.split()[1:]]
+                    vibfreqs.extend(freqs)
+                    self.skip_line(inputfile, ['b'])
                     line = next(inputfile)
+                    if line.strip().startswith('symmetry'):
+                        syms = line.split()[1:]
+                        vibsyms.extend(syms)
 
-                self.set_attribute('atomcoords', atomcoords)
-                self.set_attribute('atomnos', atomnos)
+                    self.skip_lines(inputfile, ['b', 'IR', 'dQIP'])
+                    line = next(inputfile)
+                    if line.strip().startswith('intensity (km/mol)'):
+                        irs = [self.float(f) for f in line.split()[2:]]
+                        vibirs.extend(irs)
 
-        ## If we are unable to find coordinates in the job file, we will look for them
-        ## in the coord file.
-        #$coord
-        #   -2.69176330280845     -0.00007129445712     -0.44712612093731      c
-        #   -1.69851644615005     -0.00007332282157      2.06488947265450      c
-        #    0.92683848474542     -0.00007460039817      2.49592179180606      c
-        #    2.69176330586455     -0.00007127328394      0.44712611937145      c
-        #    1.69851645303760     -0.00007330575699     -2.06488946767951      c
-        #...
-        #   -7.04373605585274      0.00092243787879      2.74543890990978      h
-        #   -9.36352819434217      0.00017228707094      0.07445321997922      h
-        #   -0.92683848797451     -0.00007460625018     -2.49592178685491      c
-        #   -1.65164852640697     -0.00009927259342     -4.45456857763148      h
-        #$redundant
-        if line.startswith("$coord"):
-            if '$coordinate' not in line:
-                line = next(inputfile)
-                if '$user' not in line: 
-                    atomcoords = []
-                    atomnos = []
-                    while line[0] != "$":
-                        atomnos.append(utils.PeriodicTable().number[line.split()[3].upper()])
-                        atomcoords.append([utils.convertor(float(x), "bohr", "Angstrom") for x in line.split()[:3]])
+                    self.skip_lines(inputfile, ['intensity', 'b', 'raman', 'b'])
+                    line = next(inputfile)
+                    x, y, z = [], [], []
+                    while line.split():
+                        x.append([float(i) for i in line.split()[3:]])
+                        line = next(inputfile)
+                        y.append([float(i) for i in line.split()[1:]])
+                        line = next(inputfile)
+                        z.append([float(i) for i in line.split()[1:]])
                         line = next(inputfile)
 
-                    self.set_attribute('atomcoords', atomcoords)
-                    self.set_attribute('atomnos', atomnos)
+                    for j in range(len(x[0])):
+                        disps = []
+                        for i in range(len(x)):
+                            disps.append([x[i][j], y[i][j], z[i][j]])
+                        vibdisps.append(disps)
 
+                line = next(inputfile)
+
+            self.set_attribute('vibfreqs', vibfreqs)
+            self.set_attribute('vibsyms', vibsyms)
+            self.set_attribute('vibirs', vibirs)
+            self.set_attribute('vibdisps', vibdisps)
+
+        # In this section we are parsing mocoeffs and moenergies from
+        # the files like: mos, alpha and beta.
+        # $scfmo    scfconv=6   format(4d20.14)
+        # # SCF total energy is     -382.3457535740 a.u.
+        # #
+        #      1  a      eigenvalue=-.97461484059799D+01   nsaos=60
+        # 0.69876828353937D+000.32405121159405D-010.87670894913921D-03-.85232349313288D-07
+        # 0.19361534257922D-04-.23841194890166D-01-.81711001390807D-020.13626356942047D-02
+        # ...
+        # ...
+        # $end
+        if (line.startswith('$scfmo') or line.startswith('$uhfmo')) and line.find('scfconv') > 0:
+            if line.strip().startswith('$uhfmo_alpha'):
+                self.unrestricted = True
+
+            # Need to skip the first line to start with lines starting with '#'.
+            line = next(inputfile)
+            while line.strip().startswith('#') and not line.find('eigenvalue') > 0:
+                line = next(inputfile)
+
+            moenergies = []
+            mocoeffs = []
+
+            while not line.strip().startswith('$'):
+                info = re.match(".*eigenvalue=(?P<moenergy>[0-9D\.+-]{20})\s+nsaos=(?P<count>\d+).*", line)
+                eigenvalue = self.float(info.group('moenergy'))
+                orbital_energy = utils.convertor(eigenvalue, 'hartree', 'eV')
+                moenergies.append(orbital_energy)
+                single_coeffs = []
+                nsaos = int(info.group('count'))
+
+                while(len(single_coeffs) < nsaos):
+                    line = next(inputfile)
+                    single_coeffs.extend(Turbomole.split_molines(line))
+
+                mocoeffs.append(single_coeffs)
+                line = next(inputfile)
+
+            max_nsaos = max([len(i) for i in mocoeffs])
+            for i in mocoeffs:
+                while len(i) < max_nsaos:
+                    i.append(numpy.nan)
+
+            if not hasattr(self, 'mocoeffs'):
+                self.mocoeffs = []
+
+            if not hasattr(self, 'moenergies'):
+                self.moenergies = []
+
+            self.mocoeffs.append(mocoeffs)
+            self.moenergies.append(moenergies)
+
+        # Parsing the scfenergies, scfvalues and scftargets from job.last file.
+        # scf convergence criterion : increment of total energy < .1000000D-05
+        #                  and increment of one-electron energy < .1000000D-02
+        #
+        # ...
+        # ...
+        #                                              current damping :  0.700
+        # ITERATION  ENERGY          1e-ENERGY        2e-ENERGY     NORM[dD(SAO)]  TOL
+        #   1  -382.34543727790    -1396.8009423     570.56292464    0.000D+00 0.556D-09
+        #                            Exc =   -57.835278090846     N = 69.997494722
+        #          max. resid. norm for Fia-block=  2.782D-05 for orbital     33a
+        # ...
+        # ...
+        #                                              current damping :  0.750
+        # ITERATION  ENERGY          1e-ENERGY        2e-ENERGY     NORM[dD(SAO)]  TOL
+        #   3  -382.34575357399    -1396.8009739     570.56263988    0.117D-03 0.319D-09
+        #                            Exc =   -57.835593208072     N = 69.999813370
+        #          max. resid. norm for Fia-block=  7.932D-06 for orbital     33a
+        #          max. resid. fock norm         =  8.105D-06 for orbital     33a
+        #
+        # convergence criteria satisfied after  3 iterations
+        #
+        #
+        #                  ------------------------------------------
+        #                 |  total energy      =   -382.34575357399  |
+        #                  ------------------------------------------
+        #                 :  kinetic energy    =    375.67398458525  :
+        #                 :  potential energy  =   -758.01973815924  :
+        #                 :  virial theorem    =      1.98255043001  :
+        #                 :  wavefunction norm =      1.00000000000  :
+        #                  ..........................................
+        if 'scf convergence criterion' in line:
+            total_energy_threshold = self.float(line.split()[-1])
+            one_electron_energy_threshold = self.float(next(inputfile).split()[-1])
+            scftargets = [total_energy_threshold, one_electron_energy_threshold]
+            self.append_attribute('scftargets', scftargets)
+            iter_energy = []
+            iter_one_elec_energy = []
+            while 'convergence criteria satisfied' not in line:
+                if 'ITERATION  ENERGY' in line:
+                    line = next(inputfile)
+                    info = line.split()
+                    iter_energy.append(self.float(info[1]))
+                    iter_one_elec_energy.append(self.float(info[2]))
+                line = next(inputfile)
+
+            assert len(iter_energy) == len(iter_one_elec_energy), \
+                'Different number of values found for total energy and one electron energy.'
+            scfvalues = [[x - y, a - b] for x, y, a, b in 
+                         zip(iter_energy[1:], iter_energy[:-1], iter_one_elec_energy[1:], iter_one_elec_energy[:-1])]
+            self.append_attribute('scfvalues', scfvalues)
+            while 'total energy' not in line:
+                line = next(inputfile)
+
+            scfenergy = utils.convertor(self.float(line.split()[4]), 'hartree', 'eV')
+            self.append_attribute('scfenergies', scfenergy)
+
+        #  **********************************************************************
+        #  *                                                                    *
+        #  *   RHF  energy                             :    -74.9644564256      *
+        #  *   MP2 correlation energy (doubles)        :     -0.0365225363      *
+        #  *                                                                    *
+        #  *   Final MP2 energy                        :    -75.0009789619      *
+        # ...
+        #  *   Norm of MP1 T2 amplitudes               :      0.0673494687      *
+        #  *                                                                    *
+        #  **********************************************************************
+        # OR
+        #  **********************************************************************
+        #  *                                                                    *
+        #  *   RHF  energy                             :    -74.9644564256      *
+        #  *   correlation energy                      :     -0.0507799360      *
+        #  *                                                                    *
+        #  *   Final CCSD energy                       :    -75.0152363616      *
+        #  *                                                                    *
+        #  *   D1 diagnostic                           :      0.0132            *
+        #  *                                                                    *
+        #  **********************************************************************
+        if 'C C S D F 1 2   P R O G R A M' in line:
+            while 'ccsdf12 : all done' not in line:
+                if 'Final MP2 energy' in line:
+                    mp2energy = [utils.convertor(self.float(line.split()[5]), 'hartree', 'eV')]
+                    self.append_attribute('mpenergies', mp2energy)
+
+                if 'Final CCSD energy' in line:
+                    ccenergy = [utils.convertor(self.float(line.split()[5]), 'hartree', 'eV')]
+                    self.append_attribute('ccenergies', ccenergy)
+
+                line = next(inputfile)
+
+        #  *****************************************************
+        #  *                                                   *
+        #  *      SCF-energy   :     -74.49827196840999        *
+        #  *      MP2-energy   :      -0.19254365976227        *
+        #  *      total        :     -74.69081562817226        *
+        #  *                                                   *
+        #  *     (MP2-energy evaluated from T2 amplitudes)     *
+        #  *                                                   *
+        #  *****************************************************
+        if 'm p g r a d - program' in line:
+            while 'ccsdf12 : all done' not in line:
+                if 'MP2-energy' in line:
+                    line = next(inputfile)
+                    if 'total' in line:
+                        mp2energy = [utils.convertor(self.float(line.split()[3]), 'hartree', 'eV')]
+                        self.append_attribute('mpenergies', mp2energy)
+                line = next(inputfile)
+
+    def deleting_modes(self, vibfreqs, vibdisps, vibirs):
+        """Deleting frequencies relating to translations or rotations"""
+        i = 0
+        while i < len(vibfreqs):
+            if vibfreqs[i] == 0.0:
+                # Deleting frequencies that have value 0 since they
+                # do not correspond to vibrations.
+                del vibfreqs[i], vibdisps[i], vibirs[i]
+                i -= 1
+            i += 1
 
     def after_parsing(self):
-        pass
+        if hasattr(self, 'vibfreqs'):
+            self.deleting_modes(self.vibfreqs, self.vibdisps, self.vibirs)
 
 
 class OldTurbomole(logfileparser.Logfile):

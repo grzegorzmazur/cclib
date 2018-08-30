@@ -36,7 +36,7 @@ all_parsers = {name: getattr(cclib.parser, name) for name in parser_names}
 module_names = [
     "SP", "SPun", "GeoOpt", "Basis", "Core",    # Basic calculations.
     "MP", "CC", "CI", "TD", "TDun",             # Post-SCF calculations.
-    "vib", "Polar", "Scan",                     # Other property calculations.
+    "vib", "BOMD", "Polar", "Scan",             # Other property calculations.
 ]
 all_modules = {tn: importlib.import_module('.data.test' + tn, package='test')
                for tn in module_names}
@@ -46,7 +46,8 @@ def gettestdata():
     """Return a dict of the test file data."""
 
     testdatadir = os.path.dirname(os.path.realpath(__file__))
-    lines = open(testdatadir + '/testdata').readlines()
+    with open(testdatadir + '/testdata') as testdatafile:
+        lines = testdatafile.readlines()
 
     # Remove blank lines and those starting with '#'.
     lines = [line for line in lines if (line.strip() and line[0] != '#')]
@@ -248,7 +249,7 @@ class DataSuite(object):
             # Note that it doesn't make sense to put MOPAC here, as it
             # is a semiempirical-only program.
             'NWChem6.5' : getdatafile('NWChem', "basicNWChem6.5", ["dvb_gopt_ks.out"])[0],
-            'ORCA3.0' : getdatafile('ORCA', "basicORCA3.0", ["dvb_gopt.out"])[0],
+            'ORCA4.0' : getdatafile('ORCA', "basicORCA4.0", ["dvb_gopt.out"])[0],
             'Psi4-1.0' : getdatafile('Psi4', "basicPsi4-1.0", ["dvb_gopt_rks.out"])[0],
             'QChem4.2' : getdatafile('QChem', "basicQChem4.2", ["dvb_gopt.out"])[0],
         }
